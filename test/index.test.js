@@ -71,17 +71,3 @@ const header = [
 const instance = new LzTable(header);
 instance.setData(rows);
 instance.render();
-
-
-import lottery from 'lz-lottery-tool';
-const {
-  getSsqLotteryLevel,
-} = lottery;
-
-// 查询是否中奖
-// 我的彩票号码
-const myLottery = '1 2 3 4 5 6 7';
-// 中奖号码
-const resultLottery = '1 2 3 4 5 6 7';
-const result = getSsqLotteryLevel(parseSsqString(myLottery), parseSsqString(resultLottery));
-console.log(result);
