@@ -12,7 +12,10 @@ export function arrEqual(left, right, serises = false) {
   let count = 0;
   for (let len = left.length, i = 0; i < len; i += 1) {
     if (!serises) {
-      if (left[i] === right[i]) {
+      // if (left[i] === right[i]) {
+      //   result += 1;
+      // }
+      if (right.indexOf(left[i]) > -1) {
         result += 1;
       }
     } else if (left[i] !== right[i]) {

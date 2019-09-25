@@ -40,14 +40,37 @@ const header = [
 
       const top = [];
       const bottom = [];
-      topArr.forEach((it, index) => {
-        const item = bottomArr[index];
-        if (it === item) {
+      normal.forEach((it) => {
+        const index = right.normal.indexOf(it);
+        if (index > -1) {
           top.push(chalk.red(it));
-          bottom.push(chalk.red(item));
         } else {
           top.push(it);
-          bottom.push(item);
+        }
+      });
+      right.normal.forEach((it) => {
+        const index = normal.indexOf(it);
+        if (index > -1) {
+          bottom.push(chalk.red(it));
+        } else {
+          bottom.push(it);
+        }
+      });
+
+      special.forEach((it) => {
+        const index = right.special.indexOf(it);
+        if (index > -1) {
+          top.push(chalk.red(it));
+        } else {
+          top.push(it);
+        }
+      });
+      right.special.forEach((it) => {
+        const index = special.indexOf(it);
+        if (index > -1) {
+          bottom.push(chalk.red(it));
+        } else {
+          bottom.push(it);
         }
       });
       return [

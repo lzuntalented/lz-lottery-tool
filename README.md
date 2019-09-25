@@ -1,14 +1,38 @@
-# lz-lottery-tool
-彩票中奖结果查询
+<h1 align="center">Welcome to lz-lottery-tool 👋</h1>
+<p>
+  <a href="https://www.npmjs.com/package/lz-lottery-tool" target="_blank">
+    <img alt="Version" src="https://img.shields.io/npm/v/lz-lottery-tool.svg">
+  </a>
+  <a href="https://github.com/lzuntalented/lz-lottery-tool" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+  </a>
+</p>
+
+> 彩票中奖结果查询
 
 ### 支持彩票种类
-* 双色球
-* 超级大乐透
-* 七星彩
-* 七乐彩
+- [x] 双色球
+- [x] 超级大乐透
+- [x] 七星彩
+- [x] 七乐彩
 
-### 使用示例
+### 🏠 [Homepage](https://github.com/lzuntalented/lz-lottery-tool)
+
+## Install
+
+```sh
+npm install
 ```
+
+## Run tests
+
+```sh
+npm run test
+```
+
+## Usage
+
+``` js
 import lottery from 'lz-lottery-tool';
 const {
   getSsqLotteryLevel,
@@ -22,3 +46,14 @@ const resultLottery = '1 2 3 4 5 6 7';
 // 双色球中奖查询
 const result = getSsqLotteryLevel(parseSsqString(myLottery), parseSsqString(resultLottery));
 ```
+
+## Author
+
+👤 **lz**
+
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
