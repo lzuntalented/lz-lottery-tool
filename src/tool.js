@@ -1,5 +1,9 @@
 import { CODE_NOT_HIT } from './constants';
 
+const isType = type => obj => Object.prototype.toString.call(obj) === `[object ${type}]`;
+// 是否对象类型
+export const isObject = isType('Object');
+
 /**
  * 判断两个数组相同的个数
  * @param {Array} left
@@ -53,7 +57,21 @@ export function getLotteryLevel(numbers, result, rules, serises = false) {
   return CODE_NOT_HIT;
 }
 
+export function parseLotteryString() {
 
-const isType = type => obj => Object.prototype.toString.call(obj) === `[object ${type}]`;
-// 是否对象类型
-export const isObject = isType('Object');
+}
+
+/**
+ * 检测是否为彩票对象
+ * @param {*} obj
+ * @param {*} len
+ */
+export function checkLotteryObject(obj, len) {
+  if (!isObject(obj)) {
+    return false;
+  }
+  if (obj.normal.length !== len.normal || obj.special.length !== len.special) {
+    return false;
+  }
+  return true;
+}

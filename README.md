@@ -16,7 +16,7 @@
 - [x] 七星彩
 - [x] 七乐彩
 
-### 🏠 [Homepage](https://github.com/lzuntalented/lz-lottery-tool)
+### 🏠 [Homepage](http://www.lzuntalented.cn/lz-cp/#/)
 
 ## Install
 
@@ -33,10 +33,10 @@ npm run test
 ## Usage
 
 ``` js
-import lottery from 'lz-lottery-tool';
+import { Ssq } from 'lz-lottery-tool';
 const {
   getSsqLotteryLevel,
-} = lottery;
+} = Ssq;
 
 // 查询是否中奖
 // 我的彩票号码
@@ -47,13 +47,6 @@ const resultLottery = '1 2 3 4 5 6 7';
 const result = getSsqLotteryLevel(parseSsqString(myLottery), parseSsqString(resultLottery));
 ```
 
-## Author
-
-👤 **lz**
-
-
-## Show your support
+***
 
 Give a ⭐️ if this project helped you!
-
-***

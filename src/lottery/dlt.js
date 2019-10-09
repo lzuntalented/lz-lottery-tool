@@ -1,4 +1,4 @@
-import { getLotteryLevel, isObject } from '../tool';
+import { getLotteryLevel, checkLotteryObject } from '../tool';
 import { CODE_PARAM_ERROR } from '../constants';
 // 彩票名称
 const name = '超级大乐透';
@@ -35,16 +35,12 @@ const rules = [
   ],
 ];
 
-export default {
-  name,
-  key,
-};
 /**
  * 解析双色球
  * @param {String} nums
  * @return false 不符合的规则
  */
-export function parseDltString(nums = '', split = ' ') {
+export function parseString(nums = '', split = ' ') {
   const list = nums.replace(/\s+/g, split).split(split).map(it => +it);
   if (list.length !== len.total) {
     return false;
@@ -62,14 +58,8 @@ export function parseDltString(nums = '', split = ' ') {
  * 解析对象是否符合双色球规范
  * @param {*} obj
  */
-export function parseDltObject(obj) {
-  if (!isObject(obj)) {
-    return false;
-  }
-  if (obj.normal.length !== len.normal || obj.special.length !== len.special) {
-    return false;
-  }
-  return true;
+function parseObject(obj) {
+  return checkLotteryObject(obj, len);
 }
 
 /**
@@ -77,9 +67,16 @@ export function parseDltObject(obj) {
  * @param {Object} numbers 持有号码
  * @param {Object} result 中奖号码
  */
-export const getDltLotteryLevel = (numbers, result) => {
-  if (!parseDltObject(numbers) || !parseDltObject(result)) {
+export const getLevel = (numbers, result) => {
+  if (!parseObject(numbers) || !parseObject(result)) {
     return CODE_PARAM_ERROR;
   }
   return getLotteryLevel(numbers, result, rules);
+};
+
+export default {
+  name,
+  key,
+  parseString,
+  getLevel,
 };

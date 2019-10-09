@@ -1,14 +1,14 @@
 import chalk from 'chalk';
 
-import lottery from '../src';
+import { Ssq } from '../src';
 import { getSsqMock } from './mock';
 
 import LzTable from './table';
 
 const {
-  getSsqLotteryLevel,
-  parseSsqString,
-} = lottery;
+  getLevel,
+  parseString,
+} = Ssq;
 
 // 对比中奖结果
 function getSsqRows() {
@@ -16,10 +16,10 @@ function getSsqRows() {
   const { left, right } = mocks;
   const result = left.map((it) => {
     const obj = {
-      left: parseSsqString(it),
-      right: parseSsqString(right),
+      left: parseString(it),
+      right: parseString(right),
     };
-    const ret = getSsqLotteryLevel(obj.left, obj.right);
+    const ret = getLevel(obj.left, obj.right);
     return [obj, ret];
   });
   return result;
