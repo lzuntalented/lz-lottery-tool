@@ -75,3 +75,43 @@ export function checkLotteryObject(obj, len) {
   }
   return true;
 }
+
+/**
+ * 全排列
+ * @param {Array} nums
+ * @param {Number} count
+ */
+function sortAll(nums, count) {
+  if (count === 0) return [];
+  if (count === 1) return nums.map(it => [it]);
+  const result = [];
+  for (let i = 0; i < nums.length; i += 1) {
+    const arr = [].concat(nums);
+    const item = arr.splice(i, 1);
+    const ret = sortAll(arr, count - 1);
+    ret.forEach((it) => {
+      const obj = item.concat(it);
+      result.push(obj);
+    });
+  }
+  return result;
+}
+
+/**
+ * 从数组中取出指定个数的元素排列
+ * @param {Array} arr 所有元素数组
+ * @param {Number} count 指定个数
+ */
+export function getNumsForwArray(arr, count) {
+  const list = sortAll(arr, count);
+  const map = {};
+  const result = [];
+  list.forEach((it) => {
+    const key = it.sort((a, b) => a - b).join();
+    if (!map[key]) {
+      map[key] = true;
+      result.push(it);
+    }
+  });
+  return result;
+}

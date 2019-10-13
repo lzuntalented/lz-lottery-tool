@@ -6,7 +6,7 @@ const {
   getLevel,
   parseString,
 } = Ssq;
-// console.log(lottery);
+console.log(lottery.CODE_PARAM_ERROR);
 // 查询是否中奖
 // 我的彩票号码
 const myLottery = '1 2 3 4 5 6 7';

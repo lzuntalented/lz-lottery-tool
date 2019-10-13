@@ -35,7 +35,7 @@ npm run test
 ``` js
 import { Ssq } from 'lz-lottery-tool';
 const {
-  getSsqLotteryLevel,
+  getLevel, parseString
 } = Ssq;
 
 // 查询是否中奖
@@ -44,7 +44,47 @@ const myLottery = '1 2 3 4 5 6 7';
 // 中奖号码
 const resultLottery = '1 2 3 4 5 6 7';
 // 双色球中奖查询
-const result = getSsqLotteryLevel(parseSsqString(myLottery), parseSsqString(resultLottery));
+const result = getLevel(parseString(myLottery), parseString(resultLottery));
+console.log(result); // 1 => 1等奖
+```
+
+## API
+
+``` js
+import {
+  Ssq, Dlt, Qlc, Qxc,
+  // 常量 参数错误
+  CODE_PARAM_ERROR,
+  // 常量 未中奖
+  CODE_NOT_HIT
+} from 'lz-lottery-tool';
+// 双色球
+const {
+  // 获取中奖等级
+  getLevel,
+  // 解析彩票号码
+  parseString,
+  // 彩种名称
+  name: '双色球',
+  // 彩种唯一标识
+  key: 'ssq',
+} = Ssq;
+
+// 大乐透
+const {
+  getLevel, parseString
+} = Dlt;
+
+// 七乐彩
+const {
+  getLevel, parseString
+} = Ssq;
+
+// 七星彩
+const {
+  getLevel, parseString
+} = Ssq;
+
 ```
 
 ***

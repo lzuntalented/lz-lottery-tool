@@ -94,3 +94,9 @@ const header = [
 const instance = new LzTable(header);
 instance.setData(rows);
 instance.render();
+
+describe('test tool', () => {
+  it('getNumsForwArray', () => {
+    expect(1).toBe(1);
+  });
+});
