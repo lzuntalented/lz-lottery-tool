@@ -1,12 +1,16 @@
 import { getNumsForwArray } from '../src/tool';
 
-
-function more(total) {
-  let result = 1;
-  for (let i = 1; i <= total; i += 1) {
-    result *= i;
+function getMultpleCount(head, foot) {
+  const A = head;
+  const B = foot;
+  let C = 1;
+  for (let i = B - A + 1; i <= B; i += 1) {
+    C *= i;
   }
-  return result;
+  for (let i = 2; i <= A; i += 1) {
+    C /= i;
+  }
+  return C;
 }
 
 describe('test tool', () => {
@@ -15,8 +19,6 @@ describe('test tool', () => {
     const count = 6;
     const len = arr.length;
     const result = getNumsForwArray(arr, count);
-    const e = result.length;
-    // console.log(e, more(len) / more(len - count));
-    expect(1).toBe(1);
+    expect(result.length).toBe(getMultpleCount(count, len));
   });
 });
